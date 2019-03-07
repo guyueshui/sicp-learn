@@ -3,15 +3,15 @@
 (define (halve x) (/ x 2))
 
 (define (* a b)
-	(define (iter cum a b)
-		(cond ((= b 0) cum)
-					((even? b) (iter cum
-													 (double a)
-													 (halve b)))
-					(else (iter (+ cum a)
-											a
-											(- b 1)))))
-	(iter 0 a b))
+    (define (iter cum a b)
+      (cond ((= b 0) cum)
+            ((even? b) (iter cum
+                             (double a)
+                             (halve b)))
+            (else (iter (+ cum a)
+                        a
+                        (- b 1)))))
+    (iter 0 a b))
 
 ;; test
 

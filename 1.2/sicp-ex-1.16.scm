@@ -1,12 +1,12 @@
 ;; Iterative version of fast-expt
 (define (fast-expt b n)
-	(fast-iter 1 n b))
+    (fast-iter 1 n b))
 
 (define (fast-iter a cnt b)
-	(cond ((= cnt 0) a)
-				((even? cnt)
-				 (fast-iter a (/ cnt 2) (square b)))
-				(else (fast-iter (* a b) (- cnt 1) b))))
+    (cond ((= cnt 0) a)
+          ((even? cnt)
+           (fast-iter a (/ cnt 2) (square b)))
+          (else (fast-iter (* a b) (- cnt 1) b))))
 
 ;; test
 (fast-expt 3 8)

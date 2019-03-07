@@ -1,10 +1,10 @@
-The first implemention is recursive:
+;; The first implemention is recursive:
 (define (+ a b)
 	(if (= a 0)
-			b
-			(inc (+ (dec a) b))))
+        b
+        (inc (+ (dec a) b))))
 
-(+ 4 5) will evolve like the following:
+(+ 4 5) ; will evolve like the following:
 (+ 4 5)
 (inc (+ 3 5))
 (inc (inc (+ 2 5)))
@@ -16,13 +16,13 @@ The first implemention is recursive:
 (inc 8)
 9
 
-While the second implemention is iterative:
+;; While the second implemention is iterative:
 (define (+ a b)
 	(if (= a 0)
 			b
 			(+ (dec a) (inc b))))
 
-now (+ 4 5) will evolve as following:
+; now (+ 4 5) will evolve as following:
 (+ 4 5)
 (+ 3 6)
 (+ 2 7)
