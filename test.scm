@@ -1,9 +1,8 @@
 ; sum from a to b
 (define (sum-int a b)
   (if (> a b)
-	  0
-	  (+ a
-		 (sum-int (1+ a) b))))
+      0
+	  (+ a (sum-int (1+ a) b))))
 
 (sum-int 1 10)
 
@@ -11,7 +10,7 @@
 ; sum from a^2 to b^2
 (define (sum-sq a b)
   (if (> a b)
-	  0
+      0
 	  (+ (square a)
 		 (sum-sq (1+ a) b))))
 

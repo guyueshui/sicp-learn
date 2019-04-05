@@ -1,27 +1,27 @@
 (define (deriv EXP VAR)
 	(cond ((constant? EXP VAR) 0)
-				((same-var? EXP VAR) 1)
-				((sum? EXP)
-				 (make-sum (deriv (A1 EXP) VAR)
-									 (deriv (A2 EXP) VAR)))
-				((prod? EXP)
-				 (make-sum
-					 (make-prod (M1 EXP)
-											(deriv (M2 EXP) VAR))
-					 (make-prod (deriv (M1 EXP) VAR)
-											(M2 EXP))))))
+          ((same-var? EXP VAR) 1)
+          ((sum? EXP)
+           (make-sum (deriv (A1 EXP) VAR)
+                     (deriv (A2 EXP) VAR)))
+          ((prod? EXP)
+           (make-sum
+             (make-prod (M1 EXP)
+                        (deriv (M2 EXP) VAR))
+             (make-prod (deriv (M1 EXP) VAR)
+                        (M2 EXP))))))
 
 (define (constant? EXP VAR)
 	(and (atom? EXP)
-			 (not (eq? EXP VAR))))
+         (not (eq? EXP VAR))))
 
 (define (same-var? EXP VAR)
 	(and (atom? EXP)
-			 (eq? EXP VAR)))
+         (eq? EXP VAR)))
 
 (define (sum? EXP)
 	(and (not (atom? EXP))
-			 (eq? (car EXP) '+)))
+         (eq? (car EXP) '+)))
 
 (define (make-sum a1 a2)
 	(list '+ a1 a2))
@@ -31,7 +31,7 @@
 
 (define (prod? EXP)
 	(and (not (atom? EXP))
-			 (eq? (car EXP) '*)))
+         (eq? (car EXP) '*)))
 
 (define (make-prod m1 m2)
 	(list '* m1 m2))
@@ -46,8 +46,8 @@
 ;; test
 (define foo
 	'(+ (* a (* x x))
-			(* b x)
-			c))
+        (* b x)
+        c))
 
 (deriv foo 'x)
 
