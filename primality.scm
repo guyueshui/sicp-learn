@@ -35,3 +35,21 @@
         (else (remainder
                 (* base (expmod base (- power 1) m))
                 m))))
+
+;; Fermat test
+(define (fermat-test n)
+  (define (try-it a)
+    (= (expmod a n n) a))
+  (try-it (+ 1 (random (- n 1)))))
+
+; (fermat-test 11)
+
+;; The following procedure run `fermat-test`
+;; a given times
+(define (fast-prime? n times)
+  (cond ((= times 0) true)
+        ((not (fermat-test n)) false)
+        (else (fast-prime? n (- times 1)))))
+
+;; test
+(fast-prime? 19999 10)
