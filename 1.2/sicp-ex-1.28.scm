@@ -19,12 +19,14 @@
           (remainder (* base (mr-expmod base (- power 1) m))
                      m))))
 
+;; I have problem here!!!
+;; But I can not work it out now.
 (define (non-trivial-sqrt? x m)
   (cond ((= x 1) false)
         ((= x (- m 1)) false)
         (else
-          true))) ;;; which way should I take?
-;          (= (remainder (square x) m) 1))))
+;          true))) ;;; which way should I take?
+          (= (remainder (square x) m) 1))))
 
 ;; fermat test
 (define (fermat-test n)
